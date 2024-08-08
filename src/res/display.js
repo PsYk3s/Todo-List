@@ -6,6 +6,8 @@ export default function updateDisplay( taskList, projectList, container ) {
     //Reset content before populating
     container.innerHTML = ""
 
+
+
     if ( projectList.length > 0) {
 
         //Sort projects by due date
@@ -74,6 +76,8 @@ export default function updateDisplay( taskList, projectList, container ) {
             });
 
         }
+    } else {
+        container.innerHTML = "<p>Start by adding a project :)</p>"
     }
 
     container.innerHTML += 
