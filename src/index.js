@@ -31,29 +31,38 @@ const addNewTask = (taskIndex, projectName) => {
 };
 
 // Remove task from taskList, update display and storage
-const removeTask = (index) => {
+const removeTask = index => {
     taskList.splice(index, 1);
     updateDisplay(taskList, projectList, container);
 };
 
 // Remove project and associated tasks, update display and storage
-const removeProject = (index) => {
+const removeProject = index => {
     taskList = taskList.filter((task) => task.taskProjectName !== projectList[index].projectName);
     projectList.splice(index, 1);
     updateDisplay(taskList, projectList, container);
 };
 
 // Toggle tasks completion
-const toggle = (index) => {
+const toggle = index => {
     taskList[index].taskActive === "active" ? taskList[index].taskActive = "inactive" : taskList[index].taskActive = "active";
     updateDisplay(taskList, projectList, container);
 };
 
-const toggleVisible = (id) => {
+const toggleVisible = id => {
     const block = document.getElementById(id)
     block.style.display == "none" ? block.style.display = "inline-grid" : block.style.display = "none";
 }
 
+const updateTask = (id, idDate, idName) => {
+    const newDate = document.getElementById(idDate)
+    const newName = document.getElementById(idName)
+    taskList[id].taskDueDate = newDate.valueAsDate || new Date()
+    taskList[id].taskName = newName.value
+    updateDisplay(taskList, projectList, container);
+}
+
+window.updateTask = updateTask
 window.toggleVisible = toggleVisible;
 window.addNewProject = addNewProject;
 window.addNewTask = addNewTask;

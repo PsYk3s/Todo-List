@@ -47,14 +47,14 @@ export default function updateDisplay( taskList, projectList, container ) {
 
                 projectContainer.innerHTML += `
                     <div class="card" id="${index}">
-                        <div id="card-text">
+                        <div id="card-text" class="card-${index}">
                             <div id="card-text-left">
                                 <h2 id="card-heading">${task.taskName}</h2>
                                 <p id="card-due">${
                                     isToday( task.taskDueDate ) ? "Today" : 
                                     isTomorrow( task.taskDueDate ) ? "Tomorrow" : 
                                     isPast( task.taskDueDate ) ? `<span id="overdue">Overdue: ${formatDistanceToNow( task.taskDueDate )} ago` : 
-                                    formatDistanceToNow( task.taskDueDate )}</p>
+                                    formatDistanceToNow( task.taskDueDate )} <a href="#" onclick="toggleVisible('edit-form-${index}')">Edit</a></p>
                             </div>
                             <div id="card-text-right">
                                 <button id="toggle" onclick="toggle(${index})" class="card-${task.taskActive}"></button>
@@ -63,7 +63,13 @@ export default function updateDisplay( taskList, projectList, container ) {
                         <div>
                             <button id="remove" onclick="removeTask(${index})"></button>
                         </div>
-                    </div>`;
+                    </div>
+                    <div id="edit-form-${index}" style="display: none" class="edit-task">
+                        <textarea type="textarea" id="edit-task-name-${index}">${task.taskName}</textarea>
+                        <input type="date" id="edit-task-date-${index}"></input>
+                        <button type="button" id="add-project" onclick="updateTask(${index}, 'edit-task-date-${index}', 'edit-task-name-${index}')">Save</button>
+                    </div>
+                    `;
 
             });
 
@@ -76,7 +82,7 @@ export default function updateDisplay( taskList, projectList, container ) {
         <div id="addprojectblock" style="display:none;">
             <textarea type="textarea" id="projectname" placeholder="Project name"></textarea>
             <input type="date" id="projectduedate"></input>
-            <button type="button" id="add-project" onclick="addNewProject()">Submit</button>
+            <button type="button" id="add-project" onclick="addNewProject()">Add project</button>
         </div></div>`
         
     storeProjects( projectList )

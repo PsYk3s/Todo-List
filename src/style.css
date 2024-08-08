@@ -32,7 +32,7 @@ h2#card-heading, p {
     padding: 4px;
 }
 
-.addtaskblock, #addprojectblock {
+.addtaskblock, #addprojectblock, .edit-task {
     margin: 10px;
     gap: 10px;
     grid-template-columns: 2fr 2fr 1fr;
