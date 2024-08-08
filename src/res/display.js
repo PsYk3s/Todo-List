@@ -77,7 +77,7 @@ export default function updateDisplay( taskList, projectList, container ) {
 
         }
     } else {
-        container.innerHTML = "<p>Start by adding a project :)</p>"
+        container.innerHTML = `<div id="intro"><p>Start by adding a project and some tasks :)</p></div>`
     }
 
     container.innerHTML += 
