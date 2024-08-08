@@ -1,16 +1,13 @@
 body {
-    display: inline-grid;
-    grid-template: 100vh / 240px 1fr;
-    margin: auto;
+    display: flex;
     width: 100%;
     font-family: monospace;
     background: #f9f9f9;
-}
-
-#sidebar {
-    padding: 10px 20px;
-    border-right: 1px solid #efefef;
-    background: #ffffff;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    justify-content: center;
 }
 
 h2 {
@@ -24,6 +21,10 @@ hr {
 a {
     text-decoration: none;
     color: #adadad;
+}
+
+a#removeproject {
+    color: #ff6a00;
 }
 
 h2#card-heading, p {
