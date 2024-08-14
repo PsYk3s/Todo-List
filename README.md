@@ -1,5 +1,7 @@
 To-do list project.
 
-This is part of the Odin Project curriculum.
+This is part of the Odin Project curriculum to create a todo list with project creation, task creation and editing capabilities. Also included is use of local storage and webpack.
 
-Full repo on Github including dist/ is intentional. Viewable here https://psyk3s.github.io/Todo-List/dist/
+Dependencies:
+
+date-fns
